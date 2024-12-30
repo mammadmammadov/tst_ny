@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>💮</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    #bg {
+      flex: 1;
+    }
+
+    .sticky-message {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      padding: 10px 0;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+    }
+
+    .sticky-message .heart {
+      color: red;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #feb640;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #fca131;
+    }
+
+    #password-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #374971;
+    }
+
+    #password-container input {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    #password-container button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #feb640;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #password-container button:hover {
+      background-color: #fca131;
+    }
+    
+
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="password-container">
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <div id="content">
+    <div id="bg">
+      <svg id="bg__moon" height="100" width="100">
+        <circle cx="50" cy="50" r="35" fill="rgb(202,244,244)" />
+      </svg>
+      <svg id="bg__cloud1" height="100" width="200">
+        <g fill="rgb(202,244,244)">
+          <path d="M40,50 L40,100 L160,100 L160,50 Z" />
+          <circle cx="40" cy="71" r="29" />
+          <circle cx="65" cy="50" r="22" />
+          <circle cx="110" cy="50" r="45" />
+          <circle cx="160" cy="68" r="32" />
+        </g>
+      </svg>
+    </div>
+    <div id="cd">
+      <p class="cd__title" id="demo"
+        style="font-family: 'Pacifico', cursive; font-size: 1.5rem; text-align: center; color: #d9ae8e;">
+        Not a fan of hustle and bustle of festive new year celebrations, but it's
+        a good time of the year to pause and reflect 🚀 It was a genuine pleasure for me to know you this year, and
+        I wish you healthy, peaceful, productive and successful 2025 with full of
+        achievements <span id="sparkle" style="color:red">✨</span> May every moment bring you happiness, and may you deeply feel how truly you deserve that 😇
+      </p>
+
+      <button style="background-color: #6768ab;font-family: 'Pacifico', cursive; font-size: 1rem; text-align: center;"
+        class="btn" id="flowers">May also every place you touch bloom with beauty, Madina 🌸🎧</button>
+
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </div>
+
+    <div class="sticky-message">
+      Coded with <span class="heart">❤️</span> and 🧠 by M. M.
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="effect.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <script>
+    function checkPassword() {
+      var enteredPassword = document.getElementById("password").value;
+
+      var correctPasswordHash = "WbUcL9nPg4spz/TXkGreQMKL1KKjpjrcl9tDdRWmY3E="; 
+
+      var enteredPasswordHash = CryptoJS.SHA256(enteredPassword).toString(CryptoJS.enc.Base64);
+
+      if (enteredPasswordHash === correctPasswordHash) {
+        document.getElementById("password-container").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        alert("Incorrect password. Please try again.");
+      }
+    }
+  </script>
+</body>
+
+</html>
